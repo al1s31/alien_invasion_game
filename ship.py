@@ -2,7 +2,7 @@ import pygame
 
 class Ship:
     """A class to manage the ship."""
-    SHIP_SIZE = (75,60)
+    #SHIP_SIZE = (75,60)
     def __init__(self,game):
         """Initialize the ship and set its starting position."""
         self.screen = game.screen
@@ -11,7 +11,7 @@ class Ship:
 
         # Load the ship image,scale it and get its rect.
         self.image = pygame.image.load('images/ship.bmp')
-        self.image = pygame.transform.scale(self.image, self.SHIP_SIZE)
+       #self.image = pygame.transform.scale(self.image, self.SHIP_SIZE)
         self.rect = self.image.get_rect()
 
         # Start each new ship at the bottom center of the screen
@@ -37,3 +37,8 @@ class Ship:
     def blitme(self):
         """Draw the ship at its current location."""
         self.screen.blit(self.image,self.rect)
+    
+    def center_ship(self):
+        """Center the ship on the screen."""
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
